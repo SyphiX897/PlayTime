@@ -1,0 +1,11 @@
+name: PlayTime
+version: '1.0'
+main: ir.syphix.playtime.PlayTime
+api-version: '1.18'
+commands:
+  playtime:
+    aliases:
+      - pt
+  playtimetop:
+    aliases:
+      - pttop
