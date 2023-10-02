@@ -1,5 +1,5 @@
 # About:
-PlayTime is a simple and useful plugin to use in your minecraft servers. You can use this plugin for your servers and see the players playtime
+PlayTime is a simple and useful plugin to use in your minecraft server. You can use this plugin for your server and see players playtime
 
 Minecraft Version: 1.18 - 1.19 - 1.20
 
