@@ -31,14 +31,18 @@ public class PlayTimeCommand implements CommandExecutor {
                 sender.sendMessage(toComponent("<gradient:dark_red:red>/playtime <player-name>"));
             }
         } else if (args.length == 1) {
-            String targetName = args[0];
-            OfflinePlayer offlineTarget = Bukkit.getOfflinePlayer(targetName);
-            if (!PlayTimeManager.hasData(offlineTarget.getName())) {
-                sender.sendMessage(toComponent("<gradient:dark_red:red>There is no player with this name"));
-                return true;
-            }
+            if (sender instanceof Player player) {
+                if (player.hasPermission("playtime.another")) {
+                    String targetName = args[0];
+                    OfflinePlayer offlineTarget = Bukkit.getOfflinePlayer(targetName);
+                    if (!PlayTimeManager.hasData(offlineTarget.getName())) {
+                        player.sendMessage(toComponent("<gradient:dark_red:red>There is no player with this name"));
+                        return true;
+                    }
 
-            sender.sendMessage(toComponent(String.format("<gradient:dark_green:green>%s playtime: <gradient:gold:yellow>%s", targetName, PlayTimeManager.getFormattedPlayTime(targetName))));
+                    player.sendMessage(toComponent(String.format("<gradient:dark_green:green>%s playtime: <gradient:gold:yellow>%s", targetName, PlayTimeManager.getFormattedPlayTime(targetName))));
+                }
+            }
         } else {
             sender.sendMessage(toComponent("<gradient:dark_red:red>/playtime <player-name>"));
         }
